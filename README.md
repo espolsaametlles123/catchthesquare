@@ -35,4 +35,4 @@ A simple but fun reflex game made with HTML, CSS, and JavaScript. Try to click o
 
 ---
 
-Made by [espolsaametlles123](https://github.com/espolsaametlles123)
+Made by [espolsaametlles123](https://github.com/espolsaametlles123) with <3

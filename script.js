@@ -22,7 +22,7 @@ function createSquare() {
       lives--;
       livesDisplay.textContent = lives;
       if (lives === 0) {
-        alert("Game Over! Final score: " + score);
+        alert("u lost haha git gud. final score: " + score);
         location.reload();
       }
     }

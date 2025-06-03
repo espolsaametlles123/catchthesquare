@@ -30,13 +30,17 @@ function createSquare() {
 }
 function handleClick() {
   clearTimeout(timeout);
-  gameArea.removeChild(square);
-  score++;
-  scoreDisplay.textContent = score;
+  if (gameArea.contains(square)) {
+    gameArea.removeChild(square);
+    score++;
+    scoreDisplay.textContent = score;
+  }
 }
 
 square.addEventListener('click', handleClick);
-square.addEventListener('touchstart', handleClick);
-
+square.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  handleClick();
+}, { passive: false });
 
 setInterval(createSquare, 1200);

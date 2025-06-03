@@ -27,13 +27,16 @@ function createSquare() {
       }
     }
   }, 1000);
-
-  square.onclick = () => {
-    clearTimeout(timeout);
-    gameArea.removeChild(square);
-    score++;
-    scoreDisplay.textContent = score;
-  };
 }
+function handleClick() {
+  clearTimeout(timeout);
+  gameArea.removeChild(square);
+  score++;
+  scoreDisplay.textContent = score;
+}
+
+square.addEventListener('click', handleClick);
+square.addEventListener('touchstart', handleClick);
+
 
 setInterval(createSquare, 1200);

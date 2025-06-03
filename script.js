@@ -35,12 +35,11 @@ function handleClick() {
     score++;
     scoreDisplay.textContent = score;
   }
-}
-
 square.addEventListener('click', handleClick);
 square.addEventListener('touchstart', (e) => {
   e.preventDefault();
   handleClick();
 }, { passive: false });
+}
 
 setInterval(createSquare, 1200);

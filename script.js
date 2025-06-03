@@ -8,9 +8,9 @@ let score = 0;
 
 function getTimeoutDuration() {
   const difficulty = difficultySelect.value;
-  if (difficulty === "easy") return 5000;
-  if (difficulty === "hard") return 1000;
-  return 2000; // normal
+  if (difficulty === "easy") return 3000;
+  if (difficulty === "hard") return 500;
+  return 1500; // normal
 }
 
 function createSquare() {

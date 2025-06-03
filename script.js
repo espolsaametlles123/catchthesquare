@@ -2,6 +2,8 @@ const gameArea = document.getElementById('game-area');
 const livesDisplay = document.getElementById('lives');
 const scoreDisplay = document.getElementById('score');
 const difficultySelect = document.getElementById('difficulty');
+const popSound = new Audio('pop.mp3');
+const failSound = new Audio('fail.mp3');
 
 let lives = 3;
 let score = 0;
@@ -27,6 +29,7 @@ function createSquare() {
   const timeout = setTimeout(() => {
     if (gameArea.contains(square)) {
       gameArea.removeChild(square);
+      failSound.play();
       lives--;
       livesDisplay.textContent = lives;
       if (lives === 0) {
@@ -41,6 +44,7 @@ function createSquare() {
     clearTimeout(timeout);
     if (gameArea.contains(square)) {
       gameArea.removeChild(square);
+      popSound.play();
       score++;
       scoreDisplay.textContent = score;
     }

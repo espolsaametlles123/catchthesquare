@@ -50,4 +50,11 @@ function createSquare() {
   square.addEventListener('touchstart', handleClick, { passive: false });
 }
 
-setInterval(createSquare, 1200);
+let gameInterval;
+
+document.getElementById('start-button').addEventListener('click', () => {
+  if (gameInterval) return; // Evita doble clic
+  gameInterval = setInterval(createSquare, 1200);
+  document.getElementById('start-button').disabled = true; // Desactiva el botó
+  difficultySelect.disabled = true; // Bloca la dificultat
+});

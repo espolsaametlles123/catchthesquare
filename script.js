@@ -1,9 +1,17 @@
 const gameArea = document.getElementById('game-area');
 const livesDisplay = document.getElementById('lives');
 const scoreDisplay = document.getElementById('score');
+const difficultySelect = document.getElementById('difficulty');
 
 let lives = 3;
 let score = 0;
+
+function getTimeoutDuration() {
+  const difficulty = difficultySelect.value;
+  if (difficulty === "easy") return 5000;
+  if (difficulty === "hard") return 1000;
+  return 2000; // normal
+}
 
 function createSquare() {
   const square = document.createElement('div');
@@ -22,11 +30,11 @@ function createSquare() {
       lives--;
       livesDisplay.textContent = lives;
       if (lives === 0) {
-        alert("you lost haha git gud. final score: " + score);
+        alert("u lost haha git gud. final score: " + score);
         location.reload();
       }
     }
-  }, 1000);
+  }, getTimeoutDuration());
 
   function handleClick(e) {
     e.preventDefault?.();

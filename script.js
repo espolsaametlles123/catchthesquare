@@ -16,30 +16,30 @@ function createSquare() {
 
   gameArea.appendChild(square);
 
-  let timeout = setTimeout(() => {
+  const timeout = setTimeout(() => {
     if (gameArea.contains(square)) {
       gameArea.removeChild(square);
       lives--;
       livesDisplay.textContent = lives;
       if (lives === 0) {
-        alert("u lost haha git gud. final score: " + score);
+        alert("you lost haha git gud. final score: " + score);
         location.reload();
       }
     }
   }, 1000);
-}
-function handleClick() {
-  clearTimeout(timeout);
-  if (gameArea.contains(square)) {
-    gameArea.removeChild(square);
-    score++;
-    scoreDisplay.textContent = score;
+
+  function handleClick(e) {
+    e.preventDefault?.();
+    clearTimeout(timeout);
+    if (gameArea.contains(square)) {
+      gameArea.removeChild(square);
+      score++;
+      scoreDisplay.textContent = score;
+    }
   }
-square.addEventListener('click', handleClick);
-square.addEventListener('touchstart', (e) => {
-  e.preventDefault();
-  handleClick();
-}, { passive: false });
+
+  square.addEventListener('click', handleClick);
+  square.addEventListener('touchstart', handleClick, { passive: false });
 }
 
 setInterval(createSquare, 1200);

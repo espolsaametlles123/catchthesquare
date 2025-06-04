@@ -90,3 +90,12 @@ gameArea.addEventListener('touchend', (e) => {
   }
   lastTouch = now;
 });
+
+document.getElementById('reset-high-score').addEventListener('click', () => {
+  const confirmReset = confirm("are you sure you want to reset the high score?");
+  if (confirmReset) {
+    localStorage.removeItem('highScore');
+    highScore = 0;
+    highScoreDisplay.textContent = highScore;
+  }
+});

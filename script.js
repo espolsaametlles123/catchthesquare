@@ -34,8 +34,11 @@ function createSquare() {
     if (gameArea.contains(square)) {
       gameArea.removeChild(square);
       failSound.play();
+      gameArea.classList.add('shake');
+      setTimeout(() => gameArea.classList.remove('shake'), 300);
       lives--;
       livesDisplay.textContent = lives;
+
       if (lives === 0) {
         alert("u lost haha git gud. final score: " + score);
         location.reload();
@@ -47,7 +50,13 @@ function createSquare() {
     e.preventDefault?.();
     clearTimeout(timeout);
     if (gameArea.contains(square)) {
-      gameArea.removeChild(square);
+      square.classList.add('hit');
+setTimeout(() => {
+  if (gameArea.contains(square)) {
+    gameArea.removeChild(square);
+  }
+}, 200);
+
       popSound.play();
       score++;
       scoreDisplay.textContent = score;

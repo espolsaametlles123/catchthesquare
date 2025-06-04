@@ -57,8 +57,18 @@ function createSquare() {
 let gameInterval;
 
 document.getElementById('start-button').addEventListener('click', () => {
-  if (gameInterval) return; // Evita doble clic
+  if (gameInterval) return;
   gameInterval = setInterval(createSquare, 1200);
-  document.getElementById('start-button').disabled = true; // Desactiva el botó
-  difficultySelect.disabled = true; // Bloca la dificultat
+  document.getElementById('start-button').disabled = true;
+  difficultySelect.disabled = true;
+});
+
+// Disable double-tap zoom on iOS
+let lastTouch = 0;
+gameArea.addEventListener('touchend', (e) => {
+  const now = new Date().getTime();
+  if (now - lastTouch <= 300) {
+    e.preventDefault();
+  }
+  lastTouch = now;
 });

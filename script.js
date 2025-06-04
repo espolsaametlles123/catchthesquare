@@ -4,6 +4,10 @@ const scoreDisplay = document.getElementById('score');
 const difficultySelect = document.getElementById('difficulty');
 const popSound = new Audio('pop.mp3');
 const failSound = new Audio('fail.mp3');
+const highScoreDisplay = document.getElementById('high-score');
+let highScore = localStorage.getItem('highScore') || 0;
+highScoreDisplay.textContent = highScore;
+
 
 let lives = 3;
 let score = 0;

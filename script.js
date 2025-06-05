@@ -63,11 +63,12 @@ setTimeout(() => {
       score++;
       scoreDisplay.textContent = score;
     }
-  if (score > highScore) {
-  highScore = score;
-  highScoreDisplay.textContent = highScore;
-  localStorage.setItem('highScore', highScore);
+    if (!isTutorial && score > highScore) {
+    highScore = score;
+    highScoreDisplay.textContent = highScore;
+    localStorage.setItem('highScore', highScore);
     }
+
   }
 
   square.addEventListener('click', handleClick);

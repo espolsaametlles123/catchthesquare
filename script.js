@@ -7,17 +7,11 @@ const failSound = new Audio('fail.mp3');
 const highScoreDisplay = document.getElementById('high-score');
 let highScore = localStorage.getItem('highScore') || 0;
 highScoreDisplay.textContent = highScore;
-
-
+let squareDuration = 1500;
+let isTutorial = false;
 let lives = 3;
 let score = 0;
 
-function getTimeoutDuration() {
-  const difficulty = difficultySelect.value;
-  if (difficulty === "easy") return 3000;
-  if (difficulty === "hard") return 500;
-  return 1500; // normal
-}
 
 function createSquare() {
   const square = document.createElement('div');
@@ -35,20 +29,22 @@ function createSquare() {
   const timeout = setTimeout(() => {
     if (gameArea.contains(square)) {
       gameArea.removeChild(square);
-      failSound.play();
-      gameArea.classList.add('shake');
-      setTimeout(() => gameArea.classList.remove('shake'), 300);
-      lives--;
-      livesDisplay.textContent = lives;
-
-      if (lives === 0) {
-        alert("u lost haha git gud. final score: " + score);
-        location.reload();
+      if (!isTutorial) {
+        failSound.play();
+        lives--;
+        livesDisplay.textContent = lives;
+        if (lives === 0) {
+          alert("u lost haha git gud. final score: " + score);
+          location.reload();
+        }
       }
     }
-  }, getTimeoutDuration());
+  }, squareDuration);
 
   function handleClick(e) {
+    if (score % 5 === 0 && squareDuration > 500) {
+    squareDuration -= 100;
+    }
     if (clicked) return;
     clicked = true;
     e.preventDefault?.();
@@ -80,9 +76,10 @@ let gameInterval;
 
 document.getElementById('start-button').addEventListener('click', () => {
   if (gameInterval) return;
+  isTutorial = document.getElementById('tutorial-mode').checked;
   gameInterval = setInterval(createSquare, 1200);
   document.getElementById('start-button').disabled = true;
-  difficultySelect.disabled = true;
+  document.getElementById('tutorial-mode').disabled = true;
 });
 
 // Disable double-tap zoom on iOS

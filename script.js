@@ -31,6 +31,8 @@ function createSquare() {
       gameArea.removeChild(square);
       if (!isTutorial) {
         failSound.play();
+        gameArea.classList.add('shake');
+        setTimeout(() => gameArea.classList.remove('shake'), 300);
         lives--;
         livesDisplay.textContent = lives;
         if (lives === 0) {
@@ -76,10 +78,15 @@ let gameInterval;
 
 document.getElementById('start-button').addEventListener('click', () => {
   if (gameInterval) return;
-  isTutorial = document.getElementById('tutorial-mode').checked;
+  isTutorial = tutorialCheckbox.checked;
+
+  const stats = livesDisplay.parentElement;
+  stats.style.display = isTutorial ? 'none' : 'block';
+  tutorialLabel.style.display = isTutorial ? 'block' : 'none';
+
   gameInterval = setInterval(createSquare, 1200);
   document.getElementById('start-button').disabled = true;
-  document.getElementById('tutorial-mode').disabled = true;
+  tutorialCheckbox.disabled = true;
 });
 
 // Disable double-tap zoom on iOS

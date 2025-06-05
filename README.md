@@ -26,6 +26,7 @@ A simple but fun reflex game made with HTML, CSS, and JavaScript. Try to click o
 - `style.css` – Game design
 - `script.js` – Game logic
 - `pop.mp3` & `fail.mp3` – Sound effects
+- `all the icons` – Favicon for everything
 
 ## ✅ To Do
 

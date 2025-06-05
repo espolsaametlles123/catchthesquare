@@ -31,8 +31,7 @@ A simple but fun reflex game made with HTML, CSS, and JavaScript. Try to click o
 ## ✅ To Do
 
 - Add background music
-- High score tracking
-- Restart button
+- More modes (progressive difficulty)
 
 ---
 

@@ -22,6 +22,8 @@ function getTimeoutDuration() {
 function createSquare() {
   const square = document.createElement('div');
   square.classList.add('square');
+  let clicked = false;
+
 
   const x = Math.random() * (gameArea.clientWidth - 50);
   const y = Math.random() * (gameArea.clientHeight - 50);
@@ -47,6 +49,8 @@ function createSquare() {
   }, getTimeoutDuration());
 
   function handleClick(e) {
+    if (clicked) return;
+    clicked = true;
     e.preventDefault?.();
     clearTimeout(timeout);
     if (gameArea.contains(square)) {

@@ -11,6 +11,8 @@ let squareDuration = 1500;
 let isTutorial = false;
 let lives = 3;
 let score = 0;
+const tutorialCheckbox = document.getElementById('tutorial-checkbox');
+const tutorialLabel = document.getElementById('tutorial-label');
 
 
 function createSquare() {

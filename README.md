@@ -4,21 +4,18 @@ A simple but fun reflex game made with HTML, CSS, and JavaScript. Try to click o
 
 ## 🕹️ How to Play
 
-1. Choose a difficulty:
-   - **Easy**: Squares stay for 3 seconds
-   - **Normal**: 1,5 seconds
-   - **Hard**: 0,5 seconds
-
-2. Click **Start Game**.
-3. Tap the red squares before they disappear.
-4. Each miss costs 1 life. Game over at 0 lives.
+1. Click **start!**.
+2. Tap the red squares before they disappear.
+3. Each miss costs 1 life. Game over at 0 lives.
 
 ## 🔊 Features
 
-- Difficulty selector
+- Progressive difficulty
 - Responsive to touch (works on iPad and phones)
 - Sound effects when hitting or missing
 - Start button to prepare before playing
+- Practice mode to learn the basics
+- Cool animations when clicking and missing
 
 ## 📁 Files
 
@@ -31,7 +28,6 @@ A simple but fun reflex game made with HTML, CSS, and JavaScript. Try to click o
 ## ✅ To Do
 
 - Add background music
-- More modes (progressive difficulty)
 
 ---
 
